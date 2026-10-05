@@ -1,0 +1,58 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap');
+
+@import "tailwindcss";
+
+@theme {
+  --color-paper: #F5F4F0;
+  --color-ink: #191B22;
+  --color-indigo: #3F4CE0;
+  --color-teal: #16B8A6;
+  --color-hairline: #D8D6CE;
+  --color-surface: #12141C;
+
+  --font-heading: "Space Grotesk", sans-serif;
+  --font-body: "IBM Plex Sans", sans-serif;
+  --font-mono: "IBM Plex Mono", monospace;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--color-paper);
+  color: var(--color-ink);
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Log line fade-in */
+@keyframes fadeSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.log-line {
+  animation: fadeSlideIn 0.35s ease both;
+}
+
+/* Reduced motion: disable ambient transitions, keep simulation readable */
+@media (prefers-reduced-motion: reduce) {
+  .animate-ping {
+    animation: none !important;
+  }
+  .log-line {
+    animation: none !important;
+  }
+  circle,
+  line {
+    transition: none !important;
+  }
+}
